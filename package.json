@@ -1,0 +1,76 @@
+{
+  "name": "material-app",
+  "version": "0.0.1",
+  "description": "All-in-one Material UI app solution",
+  "keywords": [
+    "react",
+    "material-ui",
+    "theme",
+    "localization",
+    "i18n",
+    "authentication"
+  ],
+  "homepage": "https://github.com/guoyunhe/material-app#readme",
+  "bugs": {
+    "url": "https://github.com/guoyunhe/material-app/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guoyunhe/material-app.git"
+  },
+  "funding": "https://github.com/sponsors/guoyunhe",
+  "license": "MIT",
+  "author": "",
+  "main": "dist/cjs/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "rive build",
+    "build:watch": "rive build --watch",
+    "lint": "rive lint",
+    "lint:fix": "rive lint --fix",
+    "start": "rive start",
+    "test": "rive test",
+    "test:ui": "rive test --ui",
+    "test:watch": "rive test --watch"
+  },
+  "prettier": "prettier-config-rive",
+  "eslintConfig": {
+    "extends": "eslint-config-rive/react"
+  },
+  "stylelint": {
+    "extends": "stylelint-config-rive"
+  },
+  "dependencies": {
+    "classnames": "^2.5.1"
+  },
+  "devDependencies": {
+    "@mdx-js/react": "^3.0.1",
+    "@testing-library/react": "^15.0.7",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/node": "^20.12.11",
+    "@types/react": "^18.3.2",
+    "@types/react-dom": "^18.3.0",
+    "react": "^18.3.1",
+    "react-doc-ui": "^2.2.6",
+    "react-dom": "^18.3.1",
+    "rive": "^2.0.33",
+    "typescript": "^5.4.5",
+    "whatwg-fetch": "^3.6.20"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^17.0.0 || ^16.8.0"
+  },
+  "rive": {
+    "template": "react",
+    "doc": {
+      "basename": "/material-app/"
+    }
+  }
+}
