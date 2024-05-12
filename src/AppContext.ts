@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material';
 import { createContext } from 'react';
-import { AppConfig } from './types';
+import { AppConfig, AuthStatus } from './types';
 
 export const lightTheme = createTheme({ palette: { mode: 'light' } });
 export const darkTheme = createTheme({ palette: { mode: 'dark' } });
@@ -12,4 +12,10 @@ export const AppContext = createContext<AppConfig>({
   lightTheme,
   darkTheme,
   languages: [],
+  authStatus: AuthStatus.Unknown,
+  setAuthStatus: () => null,
+  authToken: null,
+  setAuthToken: () => null,
+  user: null,
+  setUser: () => null,
 });

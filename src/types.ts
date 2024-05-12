@@ -11,6 +11,19 @@ export interface LanguageOption {
   label: string;
 }
 
+export enum AuthStatus {
+  // Haven't been verified by back-end.
+  Unknown = 'unknown',
+  // The user has logged in.
+  LoggedIn = 'logged_in',
+  // The user has not logged in yet.
+  NotLoggedIn = 'not_logged_in',
+  // The user has manually logged out.
+  LoggedOut = 'logged_out',
+  // The authentication token expired.
+  Expired = 'expired',
+}
+
 export interface AppConfig {
   lightTheme: Theme;
   darkTheme: Theme;
@@ -18,4 +31,10 @@ export interface AppConfig {
   setThemePreference: (theme: ThemePreference) => void;
   themeMode: ThemeMode;
   languages: LanguageOption[];
+  authStatus: AuthStatus;
+  setAuthStatus: (status: AuthStatus) => void;
+  authToken: string | null;
+  setAuthToken: (token: string | null) => void;
+  user: any;
+  setUser: (user: any) => void;
 }

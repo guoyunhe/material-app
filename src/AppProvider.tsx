@@ -7,7 +7,7 @@ import { ReactNode, useMemo } from 'react';
 import { I18nextProvider, initReactI18next } from 'react-i18next';
 import { AppContext } from './AppContext';
 import { LanguageEffect } from './private/LanguageEffect';
-import { AppConfig, ThemePreference } from './types';
+import { AppConfig, AuthStatus, ThemePreference } from './types';
 
 export interface AppProviderProps
   extends Pick<AppConfig, 'darkTheme' | 'lightTheme' | 'languages'> {
@@ -31,16 +31,7 @@ export function AppProvider({ children, ...config }: AppProviderProps) {
         backend: { loadPath: '/locales/{{lng}}/{{ns}}.json' },
         detection: {
           // order and from where user language should be detected
-          order: [
-            'querystring',
-            'cookie',
-            'localStorage',
-            'sessionStorage',
-            'navigator',
-            'htmlTag',
-            'path',
-            'subdomain',
-          ],
+          order: ['navigator', 'cookie', 'localStorage', 'querystring', 'path', 'subdomain'],
 
           // keys or params to lookup language from
           lookupQuerystring: 'locale',
@@ -58,8 +49,25 @@ export function AppProvider({ children, ...config }: AppProviderProps) {
       .use(initReactI18next);
   }, []);
 
+  const [authStatus, setAuthStatus] = useStorage('auth_status', AuthStatus.Unknown);
+  const [authToken, setAuthToken] = useStorage('auth_token', null);
+  const [user, setUser] = useStorage('user', null);
+
   return (
-    <AppContext.Provider value={{ ...config, themePreference, setThemePreference, themeMode }}>
+    <AppContext.Provider
+      value={{
+        ...config,
+        themePreference,
+        setThemePreference,
+        themeMode,
+        authStatus,
+        setAuthStatus,
+        authToken,
+        setAuthToken,
+        user,
+        setUser,
+      }}
+    >
       <I18nextProvider i18n={i18n}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
