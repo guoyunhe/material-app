@@ -11,4 +11,5 @@ export const AppContext = createContext<AppConfig>({
   themeMode: 'light',
   lightTheme,
   darkTheme,
+  languages: [],
 });
