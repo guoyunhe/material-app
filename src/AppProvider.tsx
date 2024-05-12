@@ -6,6 +6,7 @@ import FetchBackend from 'i18next-fetch-backend';
 import { ReactNode, useMemo } from 'react';
 import { I18nextProvider, initReactI18next } from 'react-i18next';
 import { AppContext } from './AppContext';
+import { LanguageEffect } from './private/LanguageEffect';
 import { AppConfig, ThemePreference } from './types';
 
 export interface AppProviderProps
@@ -62,6 +63,7 @@ export function AppProvider({ children, ...config }: AppProviderProps) {
       <I18nextProvider i18n={i18n}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
+          <LanguageEffect />
           {children}
         </ThemeProvider>
       </I18nextProvider>
