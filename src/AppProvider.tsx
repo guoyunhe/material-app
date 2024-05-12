@@ -6,6 +6,7 @@ import FetchBackend from 'i18next-fetch-backend';
 import { ReactNode, useMemo } from 'react';
 import { I18nextProvider, initReactI18next } from 'react-i18next';
 import { AppContext } from './AppContext';
+import { AuthEffect } from './private/AuthEffect';
 import { LanguageEffect } from './private/LanguageEffect';
 import { AppConfig, AuthStatus, ThemePreference } from './types';
 
@@ -50,7 +51,7 @@ export function AppProvider({ children, ...config }: AppProviderProps) {
   }, []);
 
   const [authStatus, setAuthStatus] = useStorage('auth_status', AuthStatus.Unknown);
-  const [authToken, setAuthToken] = useStorage('auth_token', null);
+  const [authToken, setAuthToken] = useStorage<string | null>('auth_token', null);
   const [user, setUser] = useStorage('user', null);
 
   return (
@@ -70,6 +71,7 @@ export function AppProvider({ children, ...config }: AppProviderProps) {
     >
       <I18nextProvider i18n={i18n}>
         <ThemeProvider theme={theme}>
+          <AuthEffect />
           <CssBaseline />
           <LanguageEffect />
           {children}
