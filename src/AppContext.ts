@@ -9,6 +9,7 @@ export const AppContext = createContext<AppConfig>({
   themePreference: 'system',
   setThemePreference: () => null,
   themeMode: 'light',
+  theme: lightTheme,
   lightTheme,
   darkTheme,
   languages: [],
