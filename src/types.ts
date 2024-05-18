@@ -25,6 +25,7 @@ export enum AuthStatus {
 }
 
 export interface AppConfig {
+  theme: Theme;
   lightTheme: Theme;
   darkTheme: Theme;
   themePreference: ThemePreference;
