@@ -49,7 +49,6 @@
   },
   "dependencies": {
     "@guoyunhe/react-storage": "^1.1.0",
-    "classnames": "^2.5.1",
     "i18next-browser-languagedetector": "^7.2.1",
     "i18next-fetch-backend": "^6.0.0"
   },
