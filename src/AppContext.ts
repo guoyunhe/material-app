@@ -8,6 +8,7 @@ export const darkTheme = createTheme({ palette: { mode: 'dark' } });
 export const AppContext = createContext<AppConfig>({
   themePreference: 'system',
   setThemePreference: () => null,
+  toggleThemePreference: () => null,
   themeMode: 'light',
   theme: lightTheme,
   lightTheme,

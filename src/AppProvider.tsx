@@ -3,7 +3,7 @@ import { CssBaseline, ThemeProvider, useMediaQuery } from '@mui/material';
 import i18next from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import FetchBackend from 'i18next-fetch-backend';
-import { ReactNode, useMemo } from 'react';
+import { ReactNode, useCallback, useMemo } from 'react';
 import { I18nextProvider, initReactI18next } from 'react-i18next';
 import { AppContext } from './AppContext';
 import { AuthEffect } from './private/AuthEffect';
@@ -21,6 +21,19 @@ export function AppProvider({ children, ...config }: AppProviderProps) {
   const themeMode = themePreference === 'system' ? systemTheme : themePreference;
   const theme =
     themeMode === 'dark' ? config.darkTheme || config.theme : config.lightTheme || config.theme;
+
+  const toggleThemePreference = useCallback(() => {
+    setThemePreference((prev) => {
+      switch (prev) {
+        case 'light':
+          return 'dark';
+        case 'dark':
+          return 'system';
+        default:
+          return 'light';
+      }
+    });
+  }, [setThemePreference]);
 
   const i18n = useMemo(() => {
     return i18next
@@ -60,6 +73,7 @@ export function AppProvider({ children, ...config }: AppProviderProps) {
         ...config,
         themePreference,
         setThemePreference,
+        toggleThemePreference,
         themeMode,
         authStatus,
         setAuthStatus,

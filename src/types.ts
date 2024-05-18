@@ -1,4 +1,5 @@
 import { Theme } from '@mui/material';
+import { Dispatch, SetStateAction } from 'react';
 
 /** Users' choice of theme preference */
 export type ThemePreference = ThemeMode | 'system';
@@ -29,7 +30,8 @@ export interface AppConfig {
   lightTheme: Theme;
   darkTheme: Theme;
   themePreference: ThemePreference;
-  setThemePreference: (theme: ThemePreference) => void;
+  setThemePreference: Dispatch<SetStateAction<ThemePreference>>;
+  toggleThemePreference: () => void;
   themeMode: ThemeMode;
   languages: LanguageOption[];
   authStatus: AuthStatus;
