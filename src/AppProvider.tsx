@@ -35,31 +35,32 @@ export function AppProvider({ children, ...config }: AppProviderProps) {
   }, [setThemePreference]);
 
   const i18n = useMemo(() => {
-    return i18next
-      .createInstance({
-        fallbackLng: 'en',
-        supportedLngs: config.languages.map((item) => item.value),
-        interpolation: {
-          escapeValue: false, // react already safes from xss => https://www.i18next.com/translation-function/interpolation#unescape
-        },
-        backend: { loadPath: '/locales/{{lng}}/{{ns}}.json' },
-        detection: {
-          // order and from where user language should be detected
-          order: ['navigator', 'cookie', 'localStorage', 'querystring', 'path', 'subdomain'],
+    const i18n_ = i18next.createInstance({
+      fallbackLng: 'en',
+      supportedLngs: config.languages.map((item) => item.value),
+      interpolation: {
+        escapeValue: false, // react already safes from xss => https://www.i18next.com/translation-function/interpolation#unescape
+      },
+      backend: { loadPath: '/locales/{{lng}}/{{ns}}.json' },
+      detection: {
+        // order and from where user language should be detected
+        order: ['navigator', 'cookie', 'localStorage', 'querystring', 'path', 'subdomain'],
 
-          // keys or params to lookup language from
-          lookupQuerystring: 'locale',
-          lookupCookie: 'locale',
-          lookupLocalStorage: 'locale',
-          lookupFromPathIndex: 0,
-          lookupFromSubdomainIndex: 0,
+        // keys or params to lookup language from
+        lookupQuerystring: 'locale',
+        lookupCookie: 'locale',
+        lookupLocalStorage: 'locale',
+        lookupFromPathIndex: 0,
+        lookupFromSubdomainIndex: 0,
 
-          caches: ['localStorage', 'cookie'],
-        },
-      })
-      .use(FetchBackend)
-      .use(LanguageDetector)
-      .use(initReactI18next);
+        caches: ['localStorage', 'cookie'],
+      },
+    });
+    i18n_.init();
+    i18n_.use(FetchBackend);
+    i18n_.use(LanguageDetector);
+    i18n_.use(initReactI18next);
+    return i18n_;
   }, []);
 
   const [authStatus, setAuthStatus] = useStorage('auth_status', AuthStatus.Unknown);
