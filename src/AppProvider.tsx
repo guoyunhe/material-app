@@ -39,7 +39,6 @@ export function AppProvider({ children, ...config }: AppProviderProps) {
           lookupQuerystring: 'locale',
           lookupCookie: 'locale',
           lookupLocalStorage: 'locale',
-          lookupSessionStorage: 'locale',
           lookupFromPathIndex: 0,
           lookupFromSubdomainIndex: 0,
 
