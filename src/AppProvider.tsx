@@ -11,7 +11,7 @@ import { LanguageEffect } from './private/LanguageEffect';
 import { AppConfig, AuthStatus, ThemePreference } from './types';
 
 export interface AppProviderProps
-  extends Pick<AppConfig, 'theme' | 'darkTheme' | 'lightTheme' | 'languages'> {
+  extends Pick<AppConfig, 'darkTheme' | 'lightTheme' | 'languages'> {
   children?: ReactNode;
 }
 
@@ -19,8 +19,7 @@ export function AppProvider({ children, ...config }: AppProviderProps) {
   const [themePreference, setThemePreference] = useStorage<ThemePreference>('theme', 'system');
   const systemTheme = useMediaQuery('(prefers-color-scheme: dark)') ? 'dark' : 'light';
   const themeMode = themePreference === 'system' ? systemTheme : themePreference;
-  const theme =
-    themeMode === 'dark' ? config.darkTheme || config.theme : config.lightTheme || config.theme;
+  const theme = themeMode === 'dark' ? config.darkTheme : config.lightTheme;
 
   const toggleThemePreference = useCallback(() => {
     setThemePreference((prev) => {
@@ -75,6 +74,7 @@ export function AppProvider({ children, ...config }: AppProviderProps) {
         setThemePreference,
         toggleThemePreference,
         themeMode,
+        theme,
         authStatus,
         setAuthStatus,
         authToken,
