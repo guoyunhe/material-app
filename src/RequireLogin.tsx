@@ -3,11 +3,11 @@ import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthStatus } from './types';
 import { useApp } from './useApp';
 
-export interface RequireAuthProps {
+export interface RequireLoginProps {
   children: ReactNode;
 }
 
-export function RequireAuth({ children }: RequireAuthProps) {
+export function RequireLogin({ children }: RequireLoginProps) {
   const { authStatus, setAuthStatus, loginPath, logoutRedirectPath } = useApp();
 
   const location = useLocation();
