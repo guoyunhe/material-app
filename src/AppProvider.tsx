@@ -5,13 +5,23 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import FetchBackend from 'i18next-fetch-backend';
 import { ReactNode, useCallback, useMemo } from 'react';
 import { I18nextProvider, initReactI18next } from 'react-i18next';
-import { AppContext } from './AppContext';
+import { AppContext, defaultConfig } from './private/AppContext';
 import { AuthEffect } from './private/AuthEffect';
 import { LanguageEffect } from './private/LanguageEffect';
 import { AppConfig, AuthStatus, ThemePreference } from './types';
 
 export interface AppProviderProps
-  extends Pick<AppConfig, 'darkTheme' | 'lightTheme' | 'languages'> {
+  extends Partial<
+    Pick<
+      AppConfig,
+      | 'darkTheme'
+      | 'lightTheme'
+      | 'languages'
+      | 'loginPath'
+      | 'loginRedirectPath'
+      | 'logoutRedirectPath'
+    >
+  > {
   children?: ReactNode;
 }
 
@@ -70,6 +80,7 @@ export function AppProvider({ children, ...config }: AppProviderProps) {
   return (
     <AppContext.Provider
       value={{
+        ...defaultConfig,
         ...config,
         themePreference,
         setThemePreference,

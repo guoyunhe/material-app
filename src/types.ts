@@ -40,4 +40,7 @@ export interface AppConfig {
   setAuthToken: (token: string | null) => void;
   user: any;
   setUser: (user: any) => void;
+  loginPath: string;
+  loginRedirectPath: string;
+  logoutRedirectPath: string;
 }

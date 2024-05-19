@@ -1,11 +1,11 @@
 import { createTheme } from '@mui/material';
 import { createContext } from 'react';
-import { AppConfig, AuthStatus } from './types';
+import { AppConfig, AuthStatus } from '../types';
 
 export const lightTheme = createTheme({ palette: { mode: 'light' } });
 export const darkTheme = createTheme({ palette: { mode: 'dark' } });
 
-export const AppContext = createContext<AppConfig>({
+export const defaultConfig: AppConfig = {
   themePreference: 'system',
   setThemePreference: () => null,
   toggleThemePreference: () => null,
@@ -20,4 +20,9 @@ export const AppContext = createContext<AppConfig>({
   setAuthToken: () => null,
   user: null,
   setUser: () => null,
-});
+  loginPath: '/login',
+  loginRedirectPath: '/',
+  logoutRedirectPath: '/',
+};
+
+export const AppContext = createContext<AppConfig>(defaultConfig);
