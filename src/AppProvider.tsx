@@ -98,7 +98,7 @@ export function AppProvider({ children, ...config }: AppProviderProps) {
       <I18nextProvider i18n={i18n}>
         <ThemeProvider theme={theme}>
           <AuthEffect />
-          <CssBaseline />
+          <CssBaseline enableColorScheme />
           <LanguageEffect />
           {children}
         </ThemeProvider>
