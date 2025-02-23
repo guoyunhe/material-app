@@ -21,8 +21,8 @@
   "funding": "https://github.com/sponsors/guoyunhe",
   "license": "MIT",
   "author": "",
-  "main": "dist/cjs/index.js",
-  "module": "dist/index.js",
+  "type": "module",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist",
@@ -41,9 +41,6 @@
     "test:watch": "rive test --watch"
   },
   "prettier": "prettier-config-rive",
-  "eslintConfig": {
-    "extends": "eslint-config-rive/react"
-  },
   "stylelint": {
     "extends": "stylelint-config-rive"
   },
@@ -55,30 +52,30 @@
   "devDependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
-    "@mdx-js/react": "^3.0.1",
+    "@mdx-js/react": "^3.1.0",
     "@mui/icons-material": "^5.15.17",
     "@mui/material": "^5.15.17",
-    "@testing-library/react": "^15.0.7",
-    "@testing-library/user-event": "^14.5.2",
-    "@types/node": "^20.12.11",
-    "@types/react": "^18.3.2",
-    "@types/react-dom": "^18.3.0",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.2.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^20.17.19",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
     "i18next": "^23.11.4",
     "react": "^18.3.1",
-    "react-doc-ui": "^2.2.6",
+    "react-doc-ui": "^2.3.0",
     "react-dom": "^18.3.1",
     "react-i18next": "^14.1.1",
     "react-router-dom": "^6.23.1",
-    "rive": "^2.0.33",
-    "typescript": "^5.4.5",
-    "whatwg-fetch": "^3.6.20",
+    "rive": "^3.0.1",
+    "typescript": "^5.7.3",
     "xior": "^0.4.3"
   },
   "peerDependencies": {
-    "@mui/icons-material": "^5.15.17",
-    "@mui/material": "^5.15.17",
+    "@mui/icons-material": "^5.15.17 || ^6.0.0",
+    "@mui/material": "^5.15.17 || ^6.0.0",
     "i18next": "^23.11.4",
-    "react": "^19.0.0 || ^18.0.0 || ^17.0.0",
+    "react": ">=16.8.0",
     "react-dom": "^19.0.0 || ^18.0.0 || ^17.0.0",
     "react-i18next": "^14.1.1",
     "xior": "0.x"
