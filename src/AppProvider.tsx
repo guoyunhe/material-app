@@ -1,4 +1,4 @@
-import { useStorage } from '@guoyunhe/react-storage';
+import { useLocalStorage } from '@guoyunhe/react-storage';
 import { CssBaseline, ThemeProvider, useMediaQuery } from '@mui/material';
 import i18next from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
@@ -26,7 +26,7 @@ export interface AppProviderProps
 }
 
 export function AppProvider({ children, ...config }: AppProviderProps) {
-  const [themePreference, setThemePreference] = useStorage<ThemePreference>('theme', 'system');
+  const [themePreference, setThemePreference] = useLocalStorage<ThemePreference>('theme', 'system');
   const systemTheme = useMediaQuery('(prefers-color-scheme: dark)') ? 'dark' : 'light';
   const themeMode = themePreference === 'system' ? systemTheme : themePreference;
   const theme = themeMode === 'dark' ? config.darkTheme : config.lightTheme;
