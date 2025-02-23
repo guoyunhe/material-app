@@ -73,9 +73,9 @@ export function AppProvider({ children, ...config }: AppProviderProps) {
     return i18n_;
   }, []);
 
-  const [authStatus, setAuthStatus] = useStorage('auth_status', AuthStatus.Unknown);
-  const [authToken, setAuthToken] = useStorage<string | null>('auth_token', null);
-  const [user, setUser] = useStorage('user', null);
+  const [authStatus, setAuthStatus] = useLocalStorage('auth_status', AuthStatus.Unknown);
+  const [authToken, setAuthToken] = useLocalStorage<string | null>('auth_token', null);
+  const [user, setUser] = useLocalStorage('user', null);
 
   return (
     <AppContext.Provider
