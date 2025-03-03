@@ -10,5 +10,4 @@ export interface MaterialAppConfig {
     dark: Theme;
     light: Theme;
   };
-  languages: LanguageOption[];
 }

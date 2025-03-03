@@ -7,7 +7,6 @@ export const dark = createCompactTheme({ palette: { mode: 'dark' } });
 
 export const defaultConfig: MaterialAppConfig = {
   themes: { light, dark },
-  languages: [],
 };
 
 export const MaterialAppContext = createContext<MaterialAppConfig>(defaultConfig);

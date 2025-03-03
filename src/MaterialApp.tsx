@@ -9,11 +9,7 @@ export interface MaterialAppProps extends Partial<MaterialAppConfig> {
   children?: ReactNode;
 }
 
-export function MaterialApp({
-  children,
-  themes = defaultConfig.themes,
-  languages = [],
-}: MaterialAppProps) {
+export function MaterialApp({ children, themes = defaultConfig.themes }: MaterialAppProps) {
   const [themeMode] = useThemeMode();
   const systemColor = useSystemColor();
   const theme = themes?.[themeMode] || themes?.[systemColor];
@@ -21,7 +17,6 @@ export function MaterialApp({
   return (
     <MaterialAppContext.Provider
       value={{
-        languages,
         themes,
       }}
     >
