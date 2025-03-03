@@ -1,8 +1,8 @@
 import { BrightnessMedium, DarkMode, LightMode } from '@mui/icons-material';
-import { ThemePreference } from '../types';
+import { ThemeMode } from '../useThemeMode';
 
 interface ThemeIconProps {
-  theme: ThemePreference;
+  theme: ThemeMode;
 }
 
 export function ThemeIcon({ theme }: ThemeIconProps) {

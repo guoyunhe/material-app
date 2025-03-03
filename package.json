@@ -37,42 +37,64 @@
   "scripts": {
     "build": "rive build",
     "build:watch": "rive build --watch",
-    "lint": "rive lint",
-    "lint:fix": "rive lint --fix",
+    "ci:eslint": "eslint -f json src -o ./.ci/eslint.json",
+    "lint": "eslint .",
+    "lint:fix": "prettier --write . && eslint --fix .",
+    "prepare": "husky",
     "start": "rive start",
     "test": "rive test",
     "test:ui": "rive test --ui",
     "test:watch": "rive test --watch"
   },
-  "prettier": "prettier-config-rive",
-  "stylelint": {
-    "extends": "stylelint-config-rive"
+  "commitlint": {
+    "extends": [
+      "ali"
+    ]
   },
+  "lint-staged": {
+    "*.{cjs,cts,js,jsx,mjs,mts,ts,tsx,vue}": "eslint --fix",
+    "*.{cjs,css,cts,html,js,json,jsx,less,md,mjs,mts,scss,ts,tsx,vue,yaml,yml}": "prettier --write"
+  },
+  "prettier": "prettier-config-ali",
+  "stylelint": {},
   "dependencies": {
     "@guoyunhe/react-storage": "^2.0.0",
+    "@guoyunhe/use-latest-callback": "^1.0.0",
     "i18next-browser-languagedetector": "^8.0.4",
-    "i18next-fetch-backend": "^6.0.0"
+    "i18next-fetch-backend": "^6.0.0",
+    "material-compact": "^2.0.0",
+    "react-fast-compare": "^3.2.2"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.7.1",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@mdx-js/react": "^3.1.0",
-    "@mui/icons-material": "^6.4.5",
-    "@mui/material": "^6.4.5",
+    "@mui/icons-material": "^6.4.6",
+    "@mui/material": "^6.4.6",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^14.6.1",
-    "@types/node": "^20.17.19",
+    "@types/node": "^20.17.22",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
+    "commitlint-config-ali": "^1.1.0",
+    "eslint": "^9.21.0",
+    "eslint-config-ali": "^16.0.3",
+    "eslint-config-prettier": "^10.0.2",
+    "eslint-plugin-prettier": "^5.2.3",
+    "husky": "^9.1.7",
     "i18next": "^24.2.2",
+    "lint-staged": "^15.4.3",
+    "prettier": "^3.5.2",
+    "prettier-config-ali": "^1.3.2",
     "react": "^18.3.1",
     "react-doc-ui": "^2.3.0",
     "react-dom": "^18.3.1",
     "react-i18next": "^15.4.1",
-    "react-router-dom": "^6.29.0",
+    "react-router-dom": "^6.30.0",
     "rive": "^3.0.1",
-    "typescript": "^5.7.3",
+    "typescript": "^5.8.2",
     "xior": "^0.4.3"
   },
   "peerDependencies": {
