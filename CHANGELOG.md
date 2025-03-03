@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.0.0 - 2025-03-02
+## 2.0.0 - 2025-03-03
 
 - **BREAKING CHANGE** Removed `<AppProvider>` component
 - **BREAKING CHANGE** Removed `<RedirectAfterLogin>` component
