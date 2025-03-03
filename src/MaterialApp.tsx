@@ -54,6 +54,7 @@ export function MaterialApp({
         console.error(err);
       },
     );
+    console.log('init i18n');
     return newI18n;
   }, []);
 
