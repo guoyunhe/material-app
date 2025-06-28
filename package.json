@@ -94,8 +94,8 @@
     "xior": "^0.4.3"
   },
   "peerDependencies": {
-    "@mui/icons-material": "^5.15.17 || ^6.0.0",
-    "@mui/material": "^5.15.17 || ^6.0.0",
+    "@mui/icons-material": "^5.15.17 || ^6.0.0 || ^7.0.0",
+    "@mui/material": "^5.15.17 || ^6.0.0 || ^7.0.0",
     "react": ">=16.8.0",
     "xior": "0.x"
   },
