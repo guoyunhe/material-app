@@ -12,15 +12,16 @@ export interface MaterialAppProps extends Partial<MaterialAppConfig> {
 export function MaterialApp({ children, themes = defaultConfig.themes }: MaterialAppProps) {
   const [themeMode] = useThemeMode();
   const systemColor = useSystemColor();
-  const theme = themes?.[themeMode] || themes?.[systemColor];
+  const activeTheme = themeMode === 'system' ? themes?.[systemColor] : themes?.[themeMode];
 
   return (
     <MaterialAppContext.Provider
       value={{
+        activeTheme,
         themes,
       }}
     >
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={activeTheme}>
         <CssBaseline enableColorScheme />
         {children}
       </ThemeProvider>

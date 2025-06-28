@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.0 - 2025-06-28
+
+- feat(useMaterialApp): added `activeTheme` return
+
 ## 2.1.0 - 2025-06-28
 
 - Support `@mui/material` 7.x

@@ -6,6 +6,7 @@ export interface LanguageOption {
 }
 
 export interface MaterialAppConfig {
+  activeTheme: Theme;
   themes: {
     dark: Theme;
     light: Theme;
