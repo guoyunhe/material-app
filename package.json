@@ -73,7 +73,6 @@
   "dependencies": {
     "@guoyunhe/react-storage": "^2.0.0",
     "@guoyunhe/use-latest-callback": "^1.0.0",
-    "material-compact": "^2.1.0",
     "react-fast-compare": "^3.2.2"
   },
   "devDependencies": {
