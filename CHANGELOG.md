@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.3.0 - 2025-06-29
+
+- feat(Theme): default themes are not compact anymore
+
 ## 2.2.0 - 2025-06-28
 
 - feat(useMaterialApp): added `activeTheme` return
